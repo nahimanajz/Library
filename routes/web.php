@@ -13,7 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::post('/book', 'BookController@store');
-Route::patch('/book/{id}', 'BookController@update');
-Route::get('/books',function (){
+Route::put('/book/{book}', 'BookController@update');
+Route::delete('/book/{book}', 'BookController@destroy');
+
+Route::post('/author','AuthorController@store');
+Route::get('/books', function (){
     return response(\App\Book::all());
 });
