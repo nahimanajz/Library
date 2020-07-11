@@ -17,6 +17,14 @@ Route::put('/book/{book}', 'BookController@update');
 Route::delete('/book/{book}', 'BookController@destroy');
 
 Route::post('/author','AuthorController@store');
+Route::post('/checkout/{book}', 'CheckoutBookController@store');
+Route::post('/checkin/{book}', 'CheckinBookController@store');
+
+
 Route::get('/books', function (){
     return response(\App\Book::all());
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

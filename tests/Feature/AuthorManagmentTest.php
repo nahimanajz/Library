@@ -3,6 +3,7 @@
 namespace Tests\Feature;
 
 use App\Author;
+use App\Book;
 use Carbon\Carbon;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;

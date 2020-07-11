@@ -13,5 +13,6 @@ class Author extends Model
     public function setDobAttribute($attribute) {
         $this->attributes['dob'] = Carbon::parse($attribute); 
     }
+  
     
 }
