@@ -12,11 +12,13 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 Route::post('/book', 'BookController@store');
 Route::put('/book/{book}', 'BookController@update');
 Route::delete('/book/{book}', 'BookController@destroy');
 
-Route::post('/author','AuthorController@store');
+Route::get('/author/create', 'AuthorController@create');
+Route::post('/authors','AuthorController@store');
 Route::post('/checkout/{book}', 'CheckoutBookController@store');
 Route::post('/checkin/{book}', 'CheckinBookController@store');
 

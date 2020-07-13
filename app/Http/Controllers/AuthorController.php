@@ -6,9 +6,17 @@ use Illuminate\Http\Request;
 
 class AuthorController extends Controller
 {
+    public function create(){
+        return view('author.create');
+    }
     public function store(){
-        Author::create(request()->only([
-            'name','dob'
-        ]));
+        
+        Author::create($this->validateRequest());
+    }
+    protected function validateRequest(){
+        return request()->validate([
+            'name' => 'required',
+            'dob' => 'required'
+        ]);
     }
 }
