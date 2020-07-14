@@ -1,8 +1,10 @@
 dist: precise
+os: linux
 language: php
 
 php:
-- 7.4
+        - 7.4
+        - 7.3
 
 addons:
         mariadb: 10.4.11
