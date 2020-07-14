@@ -1,21 +1,23 @@
+os: linux
 language: php
-php: 
-        - 7.4.2
-env: 
-        global:
-                - setup=basic
-                - APP_ENV=staging
-                - APP_DEBUG=true
-                - APP_KEY=base64:gkyOoctSQbg8LDtUfb1a9a6ggc+Q/ty9d01h3PLrUk0=
-                - DB_CONNECTION=sqlite
-                - CACHE_DRIVER=file
-                - SESSION_DRIVER=file
-                - QUEUE_DRIVER=sync 
-        
-        sudo: false
-        install:
-                - if [[ $setup = 'basic' ]]; then travis_retry composer install --no-interaction --prefer-source; fi
-                - if [[ $setup = 'stable' ]]; then travis_retry composer update --prefer-source --no-interaction --prefer-stable; fi
-                - if [[ $setup = 'lowest' ]]; then travis_retry composer update --prefer-source --no-interaction --prefer-lowest --prefer-stable; fi
+php: '7.4.2'
+services:
+        - mysql
+before_script:
+        - composer self-update
+        - composer install --no-interaction
+        - mysql -e 'CREATE DATABASE library'
+        - npm install 
+        - cp .env.travis .env
+        - php artisan key:generate
+        - php artisan migrate
+
 script:
-        - vendor/bin/phpunit --coverage-text
+        - ./vendor/bin/phpunit
+        - npm run production
+notifications:
+email:
+        recipients:
+        - jazzonahimana@gmail.com
+   on_success: always
+   on_failure: always
