@@ -45,9 +45,8 @@ class BookManagementTest extends TestCase
     public function a_book_can_be_deleted(){
         $this->withoutExceptionHandling();
 
-        $this->post('books',$this->data());
+        $book = factory('App\Book')->create($this->data());
         $book = Book::first();
-        
         $this->assertCount(1 ,Book::all());
 
         $response = $this->delete('/book/'.$book->id);
