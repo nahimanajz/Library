@@ -1,3 +1,3 @@
 @echo off
 cls
-vendor\bin\phpunit --filter %1
+.\vendor\bin\phpunit --filter %1
