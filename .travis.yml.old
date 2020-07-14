@@ -24,7 +24,7 @@ before_script:
        # - php artisan migrate 
 
 script:
-        - vendor/bin/phpunit --coverage-text
+        - ./vendor/bin/phpunit
         - phpcs --ignore=app/Http/Controllers/Auth.php, app/Http/Controllers/Controller.php, app/Http/Controllers/Controller.php
         - npm run prod
 notifications:
