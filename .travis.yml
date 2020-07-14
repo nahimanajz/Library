@@ -19,9 +19,9 @@ before_script:
 script:
     - vendor/bin/phpunit
 
-notifications:
-email:
-    recipients:
-        - jazzonahimana@gmail.com
-    on_success: always
-    on_failure: always
+#notifications:
+# email:
+#     recipients:
+#         - jazzonahimana@gmail.com
+#     on_success: always
+#     on_failure: always
