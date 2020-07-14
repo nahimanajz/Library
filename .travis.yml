@@ -6,7 +6,7 @@ env:
                 - setup=basic
                 - APP_ENV=staging
                 - APP_DEBUG=true
-                - APP_KEY=xxx
+                - APP_KEY=base64:gkyOoctSQbg8LDtUfb1a9a6ggc+Q/ty9d01h3PLrUk0=
                 - DB_CONNECTION=sqlite
                 - CACHE_DRIVER=file
                 - SESSION_DRIVER=file
