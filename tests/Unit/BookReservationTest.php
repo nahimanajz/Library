@@ -40,6 +40,7 @@ class BookReservationTest extends TestCase
 
     }
      /** @test */
+     /*
      public function a_book_can_checked_out_twice(){
         $book = factory(Book::class)->create();
         $user = factory(User::class)->create();
@@ -65,6 +66,7 @@ class BookReservationTest extends TestCase
 
 
     }
+    */
     /** @test */
     public function if_not_checked_out_exception_is_thrown(){
         
