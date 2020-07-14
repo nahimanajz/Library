@@ -1,18 +1,18 @@
+dist: precise
 language: php
 
 php:
 - 7.4.2
 
-services:
-- mysql
+addons:
+        mariadb: 10.4.11
 
 before_script:
 - cp .env.travis .env
-- mysql -e 'create database library;'
+- sudo mysql -e 'create database library;'
 - composer self-update
 - composer install --no-interaction
-- php artisan key:generate
-- php artisan migrate 
+- php artisan migrate --no-interaction -vvv 
 
 script:
     - vendor/bin/phpunit
