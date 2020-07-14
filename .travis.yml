@@ -25,9 +25,8 @@ before_script:
 
 script:
         - vendor/bin/phpunit --coverage-text
-        - phpcs --ignore=app/Http/Controllers/Auth.php, app/Http/Controllers/Controller.php, app/Http/Controllers
+        - phpcs --ignore=app/Http/Controllers/Auth.php, app/Http/Controllers/Controller.php, app/Http/Controllers/Controller.php
         - npm run production
-        - jshint resources/assets/js/modules/*
 notifications:
 email:
         recipients:
