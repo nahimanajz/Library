@@ -1,23 +1,25 @@
-os: linux
 language: php
-php: '7.4.2'
+
+php:
+- 7.4.2
+
 services:
-        - mysql
+- mysql
+
 before_script:
-        - composer self-update
-        - composer install --no-interaction
-        - mysql -e 'create database libray;'
-        - npm install 
-        - cp .env.travis .env
-        - php artisan key:generate
-        - php artisan migrate
+- cp .env.travis .env
+- mysql -e 'create database library;'
+- composer self-update
+- composer install --no-interaction
+- php artisan key:generate
+- php artisan migrate 
 
 script:
-        - ./vendor/bin/phpunit
-        - npm run production
+    - vendor/bin/phpunit
+
 notifications:
 email:
-        recipients:
+    recipients:
         - jazzonahimana@gmail.com
-   on_success: always
-   on_failure: always
+    on_success: always
+    on_failure: always
