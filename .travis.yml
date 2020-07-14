@@ -6,7 +6,7 @@ services:
 before_script:
         - composer self-update
         - composer install --no-interaction
-        - mysql -e 'CREATE DATABASE library'
+        - mysql -e 'create database libray;'
         - npm install 
         - cp .env.travis .env
         - php artisan key:generate
