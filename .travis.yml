@@ -15,6 +15,7 @@ before_script:
   - pear install pear/PHP_CodeSniffer
   - phpenv rehash
   - mysql -e 'CREATE DATABASE library;'
+  - php artisan key:generate
   - nvm install 7.7.1
   - npm install npm@latest -g
   - npm install -g jshint
