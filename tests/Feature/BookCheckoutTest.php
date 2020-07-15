@@ -6,12 +6,10 @@ use App\Book;
 use App\User;
 use App\Reservation;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Support\Facades\Auth;
 use Tests\TestCase;
 
-class BookCheckoutTest extends TestCase
-{
+class BookCheckoutTest extends TestCase {
     use RefreshDatabase;
     /** @test */
     public function a_book_can_checked_out_by_a_signed_in_user(){

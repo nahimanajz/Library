@@ -13,9 +13,10 @@ class AuthorManagmentTest extends TestCase
 {
     use RefreshDatabase;
    /** @test */
-   public function an_author_can_be_created(){
+   public function an_author_can_be_created()
+     {
      // $this->withoutExceptionHandling();   
-     $this->post('/authors',$this->data());
+        $this->post('/authors', $this->data());
        
        $author= Author::all();
        
@@ -24,17 +25,20 @@ class AuthorManagmentTest extends TestCase
       // $this->assertEquals('05/04/1997', $author->first()->dob->format('Y/d/m')); 
     }
    /** @test */
-    public function a_name_is_required(){
-        $response = $this->post('/authors',array_merge($this->data(), ['name'=> '']));
+    public function a_name_is_required()
+    {
+        $response = $this->post('/authors', array_merge($this->data(), ['name'=> '']));
         $response->assertSessionHasErrors();
     }
    /** @test */
 
-    public function a_dob_is_required(){
-        $response = $this->post('/authors',array_merge($this->data(), ['dob'=> '']));
+    public function a_dob_is_required()
+    {
+        $response = $this->post('/authors', array_merge($this->data(), ['dob'=> '']));
         $response->assertSessionHasErrors();
     }
-    private function data() {
+    private function data() 
+    {
         return [
             'name' => 'Author Name',
             'dob' => '05/04/1997'
