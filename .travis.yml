@@ -5,7 +5,7 @@ language: php
 
 php:
   - '7.4.2'
-  services: 
+services: 
   - mysql
   
 before_script:
@@ -14,7 +14,7 @@ before_script:
   - cp .env.travis .env
   - pear install pear/PHP_CodeSniffer
   - phpenv rehash
-  - sudo mysql -e 'CREATE DATABASE library;'
+  - mysql -e 'CREATE DATABASE library;'
   - nvm install 7.7.1
   - npm install npm@latest -g
   - npm install -g jshint
