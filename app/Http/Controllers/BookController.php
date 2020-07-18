@@ -22,5 +22,8 @@ class BookController extends Controller
             'title'=>'required',
             'author_id' => 'required'
         ]);
-    }  
+    } 
+    public function books(){
+        return response(['books ' => Book::all()]);
+    } 
 }
