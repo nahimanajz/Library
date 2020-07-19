@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,7 +14,9 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('users', 'Auth\RegisterController@users');
-/*
-Route::post('login', 'Api\UserController@login');
-*/
+Route::get('/users', 'UserApiController@all')->middleware('jwt');
+
+Route::post('login', 'UserApiController@authenticate');
+Route::post('register', 'UserApiController@register');
+
+
